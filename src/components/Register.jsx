@@ -1,6 +1,7 @@
 import './Register.css'
 import { useState } from 'react';
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 // import { useRef } from 'react';
 
 // export default function Register() {
@@ -45,14 +46,15 @@ import axios from 'axios';
 
 export default function Register() {
     const [user, setUser] = useState({});
-    const [error, setError] = useState("");
+    const [error, setError] = useState();
+    const Navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_API_URL
     const handleSubmit = async () => {
         try {
-            // const url = "http://localhost:8080/api/users/register";
-            const url = "https://mern-backend-seven-pi.vercel.app/api/users/register";
+            const url = `${API_URL}/api/users/register`;
             const result = await axios.post(url,user);
             setError("Data saved successfully.");
-            console.log(result);
+            Navigate("/login");
         } catch (err){
             console.log(err);
             setError("Something went wrong, please try again later.");
@@ -78,6 +80,8 @@ export default function Register() {
             <p>
                 <button onClick={handleSubmit}>Submit</button>
             </p>
+            <hr />
+            <Link to="/login">Already a member? Login Here...</Link>
             </div>
         </div>
     );
