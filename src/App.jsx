@@ -19,12 +19,21 @@ function App() {
     <div className='App-Container'>
       <BrowserRouter>
 
-        <h1>MERN Frontend</h1>
+        {/* <h1>MERN Frontend</h1>
         <Link to="/">Home</Link>-
         <Link to="/cart">MyCart</Link>-
         <Link to="/order">MyOrder</Link>-
         <Link to="/login">Login</Link>-
-        <Link to="/admin">Admin</Link>
+        <Link to="/admin">Admin</Link> */}
+
+<h1 className="main-title">MERN Frontend</h1>
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/cart">MyCart</Link>
+          <Link to="/order">MyOrder</Link>
+          <Link to="/login">Login</Link>
+          <Link to="/admin">Admin</Link>
+        </div>
 
         <Routes>
           <Route index element={<Product/>}/>
