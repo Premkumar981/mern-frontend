@@ -1,3 +1,7 @@
+/* .App-Container{
+  background-color: #eeeeee;
+} */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
 * {
@@ -26,7 +30,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Header styles */
+
 .App-Container h1 {
   font-size: 2.5rem;
   font-weight: 700;
@@ -36,7 +40,7 @@ body {
   text-shadow: 0 0 10px #00f7ff60;
 }
 
-/* Navigation links (centered row) */
+
 .App-Container a[href="/"],
 .App-Container a[href="/cart"],
 .App-Container a[href="/order"],
@@ -63,7 +67,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Override nav alignment */
+
 .App-Container a {
   color: #ffffff;
   text-decoration: none;
@@ -81,7 +85,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Footer styles */
+
 .App-Container h3 {
   margin-top: 3rem;
   text-align: center;
@@ -90,21 +94,15 @@ body {
   opacity: 0.8;
 }
 
-/* Space between routes */
 .App-Container > *:not(h1):not(a):not(h3):not(style) {
   margin-top: 2rem;
 }
 
-/* Page section titles */
 div > h2 {
   margin-bottom: 1rem;
   color: #00f7ff;
   text-align: center;
 }
-
-/* ============================= */
-/* Forms, Inputs, Tables Styling */
-/* ============================= */
 
 form {
   margin-bottom: 1rem;
@@ -148,7 +146,6 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Table styling */
 table {
   width: auto;
   min-width: 80%;
@@ -176,7 +173,6 @@ td {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Center search and pagination */
 div:has(> button:disabled),
 div:has(> input[type="text"]):not(.App-Register-Row) {
   display: flex;
@@ -186,13 +182,11 @@ div:has(> input[type="text"]):not(.App-Register-Row) {
   margin: 10px 0;
 }
 
-/* Admin links spacing */
 .App-Container a[href^="/admin"] {
   display: inline-block;
   margin: 8px;
 }
 
-/* Center nested Admin routes */
 div:has(> table),
 div:has(> form),
 div:has(> nav) {
@@ -201,7 +195,6 @@ div:has(> nav) {
   align-items: center;
 }
 
-/* Login form link (Create Account) center */
 form + hr + a {
   display: block;
   text-align: center;
@@ -210,7 +203,6 @@ form + hr + a {
   font-weight: 500;
 }
 
-/* Register Page Styling */
 .App-Register-Row {
   display: flex;
   justify-content: center;
@@ -251,7 +243,6 @@ form + hr + a {
   text-align: center;
 }
 
-/* Responsive tweaks */
 @media (max-width: 768px) {
   .App-Container {
     padding: 1.2rem;
@@ -281,14 +272,12 @@ form + hr + a {
   }
 }
 
-/* Center all nav links after h1 (Home, MyCart, MyOrder, Login, Admin) */
 .App-Container > h1 + a {
   display: block;
   text-align: center;
   margin-bottom: 10px;
 }
 
-/* Group following links into a flex container */
 .App-Container > a[href="/cart"],
 .App-Container > a[href="/order"],
 .App-Container > a[href="/login"],
@@ -297,7 +286,6 @@ form + hr + a {
   margin: 0 10px;
 }
 
-/* Make sure they appear on same line */
 .App-Container > h1 + a + a[href="/cart"] {
   display: flex;
   justify-content: center;
@@ -306,7 +294,6 @@ form + hr + a {
   margin-top: 10px;
 }
 
-/* Prevent individual links from breaking */
 .App-Container > a {
   white-space: nowrap;
 }
@@ -337,9 +324,9 @@ form + hr + a {
 .login-container {
   display: flex;
   flex-direction: column;
-  align-items: center;     /* centers items horizontally */
+  align-items: center;  
   max-width: 360px;
-  margin: 2rem auto;        /* centers block with vertical spacing */
+  margin: 2rem auto;       
 }
 
 .login-container input {
