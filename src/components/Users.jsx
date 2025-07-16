@@ -121,8 +121,8 @@ export default function Users() {
     <div>
       <h2>User Management</h2>
       {error}
-      <div>
-        <form ref={frmRef}>
+      <div className="admin-form-container">
+        <form ref={frmRef} className="admin-form">
           <input
             name="firstName"
             value={form.firstName}
@@ -183,7 +183,7 @@ export default function Users() {
           )}
         </form>
       </div>
-      <div>
+      <div className="search-container">
         <input type="text" onChange={(e) => setSearchVal(e.target.value)} />
         <button onClick={() => fetchUsers()}>Search</button>
       </div>
