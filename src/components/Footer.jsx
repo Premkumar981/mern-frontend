@@ -21,12 +21,12 @@ export default function Footer() {
         </div>
         <div className="footer-column">
           <h4>Contact</h4>
-          <p>Email: support@yourstore.com</p>
-          <p>Phone: +91 98765 43210</p>
+          <p>Email: premkumarsuru@gmail.com</p>
+          <p>Phone: +91 99594 08946</p>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} YourStore. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Suru Prem Kumar. All rights reserved.</p>
       </div>
     </footer>
   );
