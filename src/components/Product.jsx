@@ -35,7 +35,7 @@ export default function Product() {
             <img className="product-image" src={product.imgUrl} width={100}/>
             <h3 className="product-name">{product.productName}</h3>
             <p>{product.description}</p>
-            <h5 className="product-price">₹{product.price}</h5>
+            <h5 className="product-price">₹ {product.price}</h5>
             <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}

@@ -179,9 +179,10 @@ export default function Products() {
               <th>Action</th>
             </tr>
           </thead>
+          <tbody >
           {products.map((value) => (
-            <tbody key={value._id}>
-              <tr>
+            
+              <tr key={value._id}>
                 <td>{value.productName}</td>
                 <td>{value.description}</td>
                 <td>{value.price}</td>
@@ -195,8 +196,9 @@ export default function Products() {
                 </div>
                 </td>
               </tr>
-            </tbody>
+            
           ))}
+          </tbody>
         </table>
       </div>
       <div className="product-pagination">
