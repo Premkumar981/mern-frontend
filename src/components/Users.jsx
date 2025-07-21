@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
+import { useContext } from "react";
+import { AppContext } from "../App";
 import axios from "axios";
 export default function Users() {
   const [users, setUsers] = useState([]);
+  const { user } = useContext(AppContext);
   const [error, setError] = useState();
   const frmRef = useRef();
   const [form, setForm] = useState({
@@ -23,7 +26,11 @@ export default function Users() {
     try {
       setError("Loading...");
       const url = `${API_URL}/api/users/?page=${page}&limit=${limit}&search=${searchVal}`;
-      const result = await axios.get(url);
+      const result = await axios.get(url, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       setUsers(result.data.users);
       setTotalPages(result.data.total);
       setError();
@@ -38,7 +45,11 @@ export default function Users() {
   const handleDelete = async (id) => {
     try {
       const url = `${API_URL}/api/users/${id}`;
-      const result = await axios.delete(url);
+      const result = await axios.delete(url, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       setError("User Deleted Successfully");
       fetchUsers();
     } catch (err) {
@@ -60,7 +71,11 @@ export default function Users() {
     }
     try {
       const url = `${API_URL}/api/users`;
-      const result = await axios.post(url, form);
+      const result = await axios.post(url, form, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       setError("User added succesfully");
       fetchUsers();
       resetForm();
@@ -91,7 +106,11 @@ export default function Users() {
     }
     try {
       const url = `${API_URL}/api/users/${editId}`;
-      const result = await axios.patch(url, form);
+      const result = await axios.patch(url, form, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       fetchUsers();
       setEditId();
       resetForm();
@@ -118,11 +137,11 @@ export default function Users() {
     });
   };
   return (
-    <div>
+    <div className="users-container">
       <h2>User Management</h2>
       {error}
-      <div className="admin-form-container">
-        <form ref={frmRef} className="admin-form">
+      <div>
+        <form ref={frmRef}>
           <input
             name="firstName"
             value={form.firstName}
@@ -183,8 +202,8 @@ export default function Users() {
           )}
         </form>
       </div>
-      <div className="search-container">
-        <input type="text" onChange={(e) => setSearchVal(e.target.value)} />
+      <div className="search-section">
+        <input type="text" placeholder="Search user..." onChange={(e) => setSearchVal(e.target.value)} />
         <button onClick={() => fetchUsers()}>Search</button>
       </div>
       <div>
@@ -205,17 +224,17 @@ export default function Users() {
                 <td>{value.email}</td>
                 <td>{value.role}</td>
                 <td>
+                  <div className="action-buttons">
                   <button onClick={() => handleEdit(value)}>Edit</button>
-                  <button onClick={() => handleDelete(value._id)}>
-                    Delete
-                  </button>
+                  <button onClick={() => handleDelete(value._id)}>Delete</button>
+                  </div>
                 </td>
               </tr>
             </tbody>
           ))}
         </table>
       </div>
-      <div>
+      <div className="pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           Previous
         </button>

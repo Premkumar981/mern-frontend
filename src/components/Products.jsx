@@ -115,11 +115,11 @@ export default function Products() {
     });
   };
   return (
-    <div>
-      <h2>Product Management</h2>
+    <div className="product-page">
+      <h2 className="product-title">Product Management</h2>
       {error}
-      <div>
-        <form ref={frmRef}>
+      <div className="product-form-wrapper">
+        <form ref={frmRef} className="product-form">
           <input
             name="productName"
             value={form.productName}
@@ -155,21 +155,21 @@ export default function Products() {
 
 
           {editId ? (
-            <>
+            <div className="product-action-btns">
               <button onClick={handleUpdate}>Update</button>
               <button onClick={handleCancel}>Cancel</button>
-            </>
+            </div>
           ) : (
             <button onClick={handleAdd}>Add</button>
           )}
         </form>
       </div>
-      <div>
-        <input type="text" onChange={(e) => setSearchVal(e.target.value)} />
+      <div className="product-search">
+        <input type="text" placeholder="Search by name" onChange={(e) => setSearchVal(e.target.value)} />
         <button onClick={fetchProducts}>Search</button>
       </div>
-      <div>
-        <table border="1">
+      <div className="product-table-wrapper">
+        <table className="product-table" border="1">
           <thead>
             <tr>
               <th>Product Name</th>
@@ -187,17 +187,19 @@ export default function Products() {
                 <td>{value.price}</td>
                 <td>{value.imgUrl}</td>
                 <td>
+                <div className="product-buttons">
                   <button onClick={() => handleEdit(value)}>Edit</button>
                   <button onClick={() => handleDelete(value._id)}>
                     Delete
                   </button>
+                </div>
                 </td>
               </tr>
             </tbody>
           ))}
         </table>
       </div>
-      <div>
+      <div className="product-pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           Previous
         </button>

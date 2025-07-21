@@ -5,17 +5,22 @@ import App, { AppContext } from "../App";
 export default function Header() {
   const { user } = useContext(AppContext);
   return (
-    <div>
-      <h1>MERN Frontend</h1>
-      <Link to="/">Home</Link>-<Link to="/cart">MyCart</Link>-
-      <Link to="/order">MyOrder</Link>
-      {/* <Link to="/admin">Admin</Link> */}
-
-      -{user?.role === "admin" && <Link to="/admin">Admin</Link>}
-      
-      {user?.token ? <Link to="/profile">Profile</Link> : <Link to="/login">Login</Link> }
-      
-    </div>
+    <div className="navbar">
+  <div className="navbar-logo">Cup & Code</div>
+  <div className="navbar-links">
+    <Link className="navbar-link" to="/">Home</Link>
+    <Link className="navbar-link" to="/cart">MyCart</Link>
+    <Link className="navbar-link" to="/order">MyOrder</Link>
+    {user?.role === "admin" && (
+      <Link className="navbar-link" to="/admin">Admin</Link>
+    )}
+    {user?.token ? (
+      <Link className="navbar-link" to="/profile">Profile</Link>
+    ) : (
+      <Link className="navbar-link" to="/login">Login</Link>
+    )}
+  </div>
+</div>
   );
 }
 

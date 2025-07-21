@@ -21,28 +21,35 @@ export default function Login() {
     }
   };
   return (
-    <div>
-      <h2>Login</h2>
-      {error}
-      <p>
-        <input
-          type="text"
-          placeholder="Email Address"
-          onChange={(e) => setUser({ ...user, email: e.target.value })}
-        />
-      </p>
-      <p>
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-      </p>
-      <p>
-        <button onClick={handleSubmit}>Submit</button>
-      </p>
-      <hr />
+    <div className="login-container">
+  <div className="login-box">
+    <h2 className="login-title">Login</h2>
+    {error && <p className="login-error">{error}</p>}
+    <p>
+      <input
+        type="text"
+        placeholder="Email Address"
+        onChange={(e) => setUser({ ...user, email: e.target.value })}
+        className="login-input"
+      />
+    </p>
+    <p>
+      <input
+        type="password"
+        placeholder="Password"
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+        className="login-input"
+      />
+    </p>
+    <p>
+      <button onClick={handleSubmit} className="login-button">Submit</button>
+    </p>
+    <hr className="login-divider" />
+    <p className="login-link">
       <Link to="/register">Create Account</Link>
-    </div>
+    </p>
+  </div>
+</div>
+
   );
 }
