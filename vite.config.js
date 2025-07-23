@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "robots.txt", "apple-touch-icon.png"],
       manifest: {
-        name: "MERN Frontend",
-        short_name: "MERN",
+        name: "Cup & Code",
+        short_name: "C&C",
         description: "MERN Stack",
         theme_color: "#ffffff",
         icons: [
